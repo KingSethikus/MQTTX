@@ -1,0 +1,19 @@
+ new TimeInterpolator(1) {
+            private final float mFactor   = 1.1f; // less than pi/2
+                    private float       oldRetVal;
+                            private float       oldInputVal;
+                                    private double      initValue = Math.tan(-mFactor);
+                                            private double      endValue  = 2 * Math.tan(mFactor);
+
+                                                    @Override
+                                                            public float getInterpolation(float input) {
+                                                                            if (oldInputVal != input) {
+                                                                                                oldInputVal = input;
+                                                                                                                oldRetVal = (float) ((Math.tan(mFactor * (2 * input - 1)) - initValue) / endValue);
+                                                                            }
+                                                                                        return oldRetVal;
+                                                            }
+ };
+
+                                                                            }
+                                                        }
